@@ -14,18 +14,16 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
-    return view('firstview');
+    return view('welcome');
 });
 
-// this my all crud opperation routes 
 
-Route::get('employee',[EmployeeController::class, 'index'])->name('employee.index');
+
+// this my all crud opperation routes
+
 Route::get('employ/create',[EmployeeController::class, 'create'])->name('employee.create');
+Route::get('employee',[EmployeeController::class, 'index'])->name('employee.index');
 Route::post('employee/store',[EmployeeController::class, 'store'])->name('employee.store');
 Route::get('employee/show',[EmployeeController::class, 'show'])->name('employee.show');
 Route::get('employee/{id}/edit',[EmployeeController::class, 'edit'])->name('employee.edit');
