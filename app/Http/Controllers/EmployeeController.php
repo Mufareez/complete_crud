@@ -29,7 +29,32 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+$request->validate([
+        'name'        => 'required|string|max:255',
+        'eid'         => 'required|string|max:100|unique:employees,eid',
+        'dob'         => 'required|date|before:today',
+        'gender'      => 'required|in:Male,Female',
+        'nic'         => 'required|string|max:20|unique:employees,nic',
+        'address'     => 'required|string|max:1000|nullable',
+        'number'      => 'required|string|regex:/^[0-9]{10,15}$/',
+        'email'       => 'required|email|unique:employees,email',
+        'doj'         => 'required|date|before_or_equal:today',
+        'department'  => 'required|string|max:255',
+        'role'        => 'required|string|max:255',
+        'type'        => 'required|string|max:255',
+        'branch'      => 'required|string|max:255',
+        'experience'  => 'required|string|max:255',
+    ]);
+
+//  dd($request->all());
+
+ Employee::create($request->all());
+
+    // return redirect()->back()->with('success', 'Employee added successfully!');
+
+
     }
 
     /**

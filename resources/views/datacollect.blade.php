@@ -9,31 +9,145 @@
 </head>
 <body>
 
-    <div class="container mt-4">
+    <div class="container-flued ms-5 me-5 mt-4 mb-4">
 
-   <form>
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops! Something went wrong.</strong>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+   <form action="{{ route('employee.store') }}" method="POST">
   <div class="row">
-    <!-- Email Field -->
+    @csrf
+
     <div class="mb-3 col-12 col-md-6">
 
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Employee Name" name ="name">
+      <input type="text" class="form-control"  aria-describedby="emailHelp" value="{{ old('email') }}"
+       required placeholder="Employee Name" name ="name">
 
     </div>
 
         <div class="mb-3 col-12 col-md-6">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+
+      <input type="text" class="form-control"  placeholder="Employee ID" name="eid" value="{{ old('email') }}"
+       required>
+
     </div>
+
+     <div class="mb-3 col-12 col-md-6">
+
+      <input type="date" class="form-control"  placeholder="Date of Birth" name="dob" value="{{ old('email') }}"
+       required>
+
+    </div>
+
+
+    <div class="mb-3 col-12 col-md-6">
+
+ <div class="form-check">
+  <input class="form-check-input" type="radio" name="gender" value="Male" checked value="{{ old('email') }}"
+       required>
+  <label class="form-check-label" for="flexRadioDefault1">
+    Male
+  </label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="gender" value="Female" value="{{ old('email') }}"
+       required>
+  <label class="form-check-label" for="flexRadioDefault2">
+    Female
+  </label>
+</div>
+    </div>
+ <div class="mb-3 col-12 col-md-6">
+
+      <input type="text" class="form-control"  placeholder="NIC" name="nic" value="{{ old('nic') }}"
+       required>
+
+    </div>
+     <div class="mb-3 col-12 col-md-6">
+
+      <div class="mb-3">
+
+  <textarea class="form-control" type="text"  placeholder="Address" name="address" rows="3" value="{{ old('address') }}"
+       required></textarea>
+</div>
+
+    </div>
+
+    <div class="mb-3 col-12 col-md-6">
+
+      <input type="text" class="form-control"  placeholder="Mobile Nmber" name="number" value="{{ old('number') }}"
+       required>
+
+    </div>
+
+        <div class="mb-3 col-12 col-md-6">
+
+      <input type="email" class="form-control"  name="email" placeholder="name@example.com" value="{{ old('email') }}"
+       required>
+
+    </div>
+    <div class="mb-3 col-12 col-md-6">
+
+      <input type="date" class="form-control"  placeholder="Date of Joining" name="doj" value="{{ old('doj') }}"
+       required>
+
+    </div>
+
+    <div class="mb-3 col-12 col-md-6">
+
+      <input type="text" class="form-control"  placeholder="Department" name="department" value="{{ old('department') }}"
+       required>
+
+    </div>
+
+     <div class="mb-3 col-12 col-md-6">
+
+      <input type="text" class="form-control"  placeholder="Role" name="role" value="{{ old('role') }}"
+       required>
+
+    </div>
+
+    <div class="mb-3 col-12 col-md-6">
+
+      <input type="text" class="form-control"  placeholder="Employment Type" name="type" value="{{ old('type') }}"
+       required>
+
+    </div>
+
+     <div class="mb-3 col-12 col-md-6">
+
+      <input type="text" class="form-control"  placeholder="Branch" name="branch" value="{{ old('branch') }}"
+       required>
+
+    </div>
+
+    <div class="mb-3 col-12 col-md-6">
+
+      <input type="text" class="form-control"  placeholder="Work Experience" name="experience" value="{{ old('experience') }}"
+       required>
+
+    </div>
+
+
+
+
+
   </div>
 
-  <!-- Checkbox -->
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+
 
   <!-- Submit Button -->
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Save</button>
 </form>
 
     </div>
