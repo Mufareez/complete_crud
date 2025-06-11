@@ -24,7 +24,7 @@ class Employee extends Model
     'role',
     'type',
     'branch',
-    'Experience', // Note: 'Experience' with capital E — keep consistent with your input field name
+    'experience', // Note: 'Experience' with capital E — keep consistent with your input field name
 ];
 
 }

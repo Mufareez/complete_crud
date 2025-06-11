@@ -23,27 +23,27 @@
 @endif
 
 
-   <form action="{{ route('employee.store') }}" method="POST">
+   <form action="{{ url('/employee/store') }}" method="POST">
   <div class="row">
     @csrf
 
     <div class="mb-3 col-12 col-md-6">
 
-      <input type="text" class="form-control"  aria-describedby="emailHelp" value="{{ old('email') }}"
+      <input type="text" class="form-control"  aria-describedby="emailHelp" value="{{ old('name') }}"
        required placeholder="Employee Name" name ="name">
 
     </div>
 
         <div class="mb-3 col-12 col-md-6">
 
-      <input type="text" class="form-control"  placeholder="Employee ID" name="eid" value="{{ old('email') }}"
+      <input type="text" class="form-control"  placeholder="Employee ID" name="eid" value="{{ old('eid') }}"
        required>
 
     </div>
 
      <div class="mb-3 col-12 col-md-6">
 
-      <input type="date" class="form-control"  placeholder="Date of Birth" name="dob" value="{{ old('email') }}"
+      <input type="date" class="form-control"  placeholder="Date of Birth" name="dob" value="{{ old('dob') }}"
        required>
 
     </div>
@@ -52,7 +52,7 @@
     <div class="mb-3 col-12 col-md-6">
 
  <div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" value="Male" checked value="{{ old('email') }}"
+  <input class="form-check-input" type="radio" name="gender" value="Male" checked value="{{ old('gender') }}"
        required>
   <label class="form-check-label" for="flexRadioDefault1">
     Male
@@ -60,7 +60,7 @@
 </div>
 
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="gender" value="Female" value="{{ old('email') }}"
+  <input class="form-check-input" type="radio" name="gender" value="Female" value="{{ old('gender') }}"
        required>
   <label class="form-check-label" for="flexRadioDefault2">
     Female

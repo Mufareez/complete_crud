@@ -52,7 +52,7 @@ $request->validate([
 
  Employee::create($request->all());
 
-    // return redirect()->back()->with('success', 'Employee added successfully!');
+    return redirect()->back()->with('success', 'Employee added successfully!');
 
 
     }
